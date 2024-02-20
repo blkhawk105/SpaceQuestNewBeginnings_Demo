@@ -221,6 +221,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54860efb2db2f4417bcbaf169f5eec87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HullStrength: 100
+  ShieldLevel: 100
+  PrimaryGunPower: 25
+  SecondaryGunPower: 50
+  ShipSpeed: 3
 --- !u!1 &308779056
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +725,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cef1809287cb431ca206fe5315502ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HullStrength: 100
+  ShieldLevel: 100
+  PrimaryGunPower: 25
+  SecondaryGunPower: 50
+  ShipSpeed: 3
 --- !u!1 &1199181499
 GameObject:
   m_ObjectHideFlags: 0
