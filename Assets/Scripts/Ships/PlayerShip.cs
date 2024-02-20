@@ -14,17 +14,14 @@ public class PlayerShip : Ship
     private float verticalInput;
     private float horizontalInput;
     
-    new int HullStrength = 0;
-    new int ShieldLevel = 0;
-
-    new int PrimaryGunPower = 0;
-    new int SecondaryGunPower = 0;
-
-    new int ShipSpeed = 10;
+    void Awake()
+    {
+        InitializeShip(ShipSpeed: 10);
+    }
     
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         // Set the visible screen area
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 

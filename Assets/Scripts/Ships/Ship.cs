@@ -4,23 +4,22 @@ using UnityEngine;
 
 public abstract class Ship : MonoBehaviour
 {
-    [SerializeField] protected int HullStrength = 0;
-    [SerializeField] protected int ShieldLevel = 0;
+    [SerializeField] protected int HullStrength = 100;
+    [SerializeField] protected int ShieldLevel = 100;
 
-    [SerializeField] protected int PrimaryGunPower = 0;
-    [SerializeField] protected int SecondaryGunPower = 0;
+    [SerializeField] protected int PrimaryGunPower = 25;
+    [SerializeField] protected int SecondaryGunPower = 50;
 
-    [SerializeField] protected int ShipSpeed = 0;
+    [SerializeField] protected int ShipSpeed = 3;
 
-    // Start is called before the first frame update
-    void Start()
+    public void InitializeShip(int HullStrength = 100, int ShieldLevel = 100, int PrimaryGunPower = 25, int SecondaryGunPower = 50, int ShipSpeed = 3)
     {
-        
-    }
+        this.HullStrength = HullStrength;
+        this.ShieldLevel = ShieldLevel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.PrimaryGunPower = PrimaryGunPower;
+        this.SecondaryGunPower = SecondaryGunPower;
+
+        this.ShipSpeed = ShipSpeed;
     }
 }
