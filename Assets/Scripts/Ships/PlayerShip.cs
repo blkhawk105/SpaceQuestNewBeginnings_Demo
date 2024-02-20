@@ -10,10 +10,9 @@ public class PlayerShip : Ship
     private float playerShipHeight;
     private float playerShipOffset;
     private const float playerShipOffsetPercent = 0.05f;
-
-    private float verticalInput;
-    private float horizontalInput;
     
+    // Awake is called before Start
+    // Calling InitializeShip here ensures it is filly ready when it is needed.
     void Awake()
     {
         InitializeShip(ShipSpeed: 10);
@@ -37,19 +36,24 @@ public class PlayerShip : Ship
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        // MoveShip();
-    }
+    // void Update()
+    // {
 
+    // }
+
+    // LateUpdate is called just after Update
+    // Calling MoveShip here makes the movements a little smoother
     void LateUpdate()
     {
         MoveShip();
-
     }
 
+    // Move the player ship around the screen
     private void MoveShip()
     {
+        float verticalInput;
+        float horizontalInput;
+
         // Move the player up and down
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(Time.deltaTime * ShipSpeed * verticalInput * Vector3.up);
@@ -61,6 +65,7 @@ public class PlayerShip : Ship
         ClampPlayerMovement();
     }
 
+    // Keep the player ship on the screen
     private void ClampPlayerMovement()
     {
         // The players current position
