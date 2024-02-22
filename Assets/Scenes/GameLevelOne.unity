@@ -225,7 +225,7 @@ MonoBehaviour:
   ShieldLevel: 100
   PrimaryGunPower: 25
   SecondaryGunPower: 50
-  ShipSpeed: 3
+  ShipSpeed: 10
 --- !u!1 &308779056
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e850158971d468fb22d88fad0244b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDestroyable: 1
+  Strength: 10
 --- !u!1 &1100989328
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +913,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd976fbc867d442dea38d83ec168feda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDestroyable: 0
+  Strength: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
