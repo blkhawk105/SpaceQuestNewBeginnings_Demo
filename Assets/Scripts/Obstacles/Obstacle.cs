@@ -29,7 +29,7 @@ public class Obstacle : MonoBehaviour
         }
     }
 
-    private void DestroyObject()
+    protected virtual void DestroyObject()
     {
         Destroy(gameObject);
     }

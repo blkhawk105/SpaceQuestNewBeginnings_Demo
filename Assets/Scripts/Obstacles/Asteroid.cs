@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Asteroid : FlyingObstacle
 {
+    private GameManager gameManager;
+
     /// <summary>
     /// The edge of the playable screen
     /// </summary>
@@ -24,6 +26,9 @@ public class Asteroid : FlyingObstacle
     // Start is called before the first frame update
     void Start()
     {
+        // Get a reference to the game manager
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
         Speed = 5;
 
         // Set the visible screen area
@@ -56,7 +61,15 @@ public class Asteroid : FlyingObstacle
 
         if(transform.position.x < -screenBounds.x - (asteroidWidth * 4))
         {
-            Destroy(gameObject);
+            DestroyObject();
         }
+    }
+
+    protected override void DestroyObject()
+    {
+        base.DestroyObject();
+
+        gameManager.AsteroidSpawnRate = Random.Range(3.0f, 8.0f);
+        gameManager.ShouldSpawnAsteroid = true;
     }
 }
