@@ -5,10 +5,8 @@ using UnityEngine.Rendering;
 
 public class PlayerShip : Ship
 {
-    /// <summary>
-    /// The edge of the playable screen
-    /// </summary>
-    private Vector2 screenBounds;
+    private GameManager gameManager;
+
     /// <summary>
     /// The width of the players ship object
     /// </summary>
@@ -36,18 +34,18 @@ public class PlayerShip : Ship
     // Start is called before the first frame update
     void Start()
     {   
-        // Set the visible screen area
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-
+        // Get a reference to the game manager
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        
         //Set the max amount in from the edge the ship should be allowed to hit
-        playerShipOffset = screenBounds.x * playerShipOffsetPercent;
+        playerShipOffset = gameManager.ScreenBounds.x * playerShipOffsetPercent;
         
         // Set the player's ship width and height
         playerShipWidth = transform.GetComponent<SpriteRenderer>().bounds.size.x / 2;
         playerShipHeight = transform.GetComponent<SpriteRenderer>().bounds.size.y / 2;
 
         // Set the starting position of the player's ship
-        transform.position = new(-screenBounds.x + playerShipOffset, 0, transform.position.z);
+        transform.position = new(-gameManager.ScreenBounds.x + playerShipOffset, 0, transform.position.z);
     }
 
     // Update is called once per frame
@@ -93,14 +91,14 @@ public class PlayerShip : Ship
         // Keep the player inside the viewable area on the x-axis
         viewPosition.x = Mathf.Clamp(
             viewPosition.x, 
-            (screenBounds.x * -1) + (playerShipWidth + playerShipOffset), 
-            screenBounds.x - (playerShipWidth + playerShipOffset));
+            (gameManager.ScreenBounds.x * -1) + (playerShipWidth + playerShipOffset), 
+            gameManager.ScreenBounds.x - (playerShipWidth + playerShipOffset));
         
         // Keep the player inside the viewable area on the y-axis
         viewPosition.y = Mathf.Clamp(
             viewPosition.y, 
-            (screenBounds.y * -1) + (playerShipHeight + playerShipOffset), 
-            screenBounds.y - (playerShipHeight + playerShipOffset));
+            (gameManager.ScreenBounds.y * -1) + (playerShipHeight + playerShipOffset), 
+            gameManager.ScreenBounds.y - (playerShipHeight + playerShipOffset));
 
         // If the player will move outside the viewable area, reset the position
         transform.position = viewPosition;
