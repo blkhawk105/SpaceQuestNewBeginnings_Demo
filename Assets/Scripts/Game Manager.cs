@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
         IsGameActive = true;
         ShouldSpawnAsteroid = true;
+        AsteroidSpawnRate = 5;
     }
 
     // Update is called once per frame

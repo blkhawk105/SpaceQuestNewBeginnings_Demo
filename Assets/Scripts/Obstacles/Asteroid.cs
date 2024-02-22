@@ -25,7 +25,7 @@ public class Asteroid : FlyingObstacle
         // Get a reference to the game manager
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
-        Speed = 5;
+        Speed = Random.Range(5, 12);
         
         // Set the player's ship width and height
         asteroidWidth = transform.GetComponent<SpriteRenderer>().bounds.size.x / 2;
