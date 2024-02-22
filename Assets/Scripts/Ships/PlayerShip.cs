@@ -5,10 +5,25 @@ using UnityEngine.Rendering;
 
 public class PlayerShip : Ship
 {
+    /// <summary>
+    /// The edge of the playable screen
+    /// </summary>
     private Vector2 screenBounds;
+    /// <summary>
+    /// The width of the players ship object
+    /// </summary>
     private float playerShipWidth;
+    /// <summary>
+    /// The height of the players ship object
+    /// </summary>
     private float playerShipHeight;
+    /// <summary>
+    /// The amount of padding added when calculating the players movement space
+    /// </summary>
     private float playerShipOffset;
+    /// <summary>
+    /// The percentage of screen space used for the playerShipOffset calculation
+    /// </summary>
     private const float playerShipOffsetPercent = 0.05f;
     
     // Awake is called before Start
@@ -48,7 +63,9 @@ public class PlayerShip : Ship
         MoveShip();
     }
 
-    // Move the player ship around the screen
+    /// <summary>
+    /// Move the player ship around the screen
+    /// </summary>
     private void MoveShip()
     {
         float verticalInput;
@@ -65,7 +82,9 @@ public class PlayerShip : Ship
         ClampPlayerMovement();
     }
 
-    // Keep the player ship on the screen
+    /// <summary>
+    /// Keep the player ship on the screen
+    /// </summary>
     private void ClampPlayerMovement()
     {
         // The players current position
