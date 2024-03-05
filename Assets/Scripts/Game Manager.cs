@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public bool IsGameActive { get; private set; }
     
     public bool ShouldSpawnAsteroid = false;
-    public float AsteroidSpawnRate = 5;
+    public float AsteroidSpawnRate = 2.5f;
 
     /// <summary>
     /// The edge of the playable screen
@@ -20,14 +20,17 @@ public class GameManager : MonoBehaviour
         // Set the visible screen area
         ScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
-        IsGameActive = true;
-        ShouldSpawnAsteroid = true;
-        AsteroidSpawnRate = 5;
+        AsteroidSpawnRate = 2.5f;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void StartLevel()
+    {
+        IsGameActive = true;
     }
 }

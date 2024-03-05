@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShouldSpawnAsteroid: 0
-  AsteroidSpawnRate: 10
+  AsteroidSpawnRate: 5
   ScreenBounds: {x: 0, y: 0}
 --- !u!4 &974733481
 Transform:

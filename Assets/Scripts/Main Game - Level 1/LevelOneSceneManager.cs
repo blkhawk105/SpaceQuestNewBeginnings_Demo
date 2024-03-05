@@ -11,9 +11,12 @@ public class LevelOneSceneManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
        // Get a reference to the game manager
        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+       
+       gameManager.StartLevel();
+       gameManager.ShouldSpawnAsteroid = true;
 
        if (gameManager.ShouldSpawnAsteroid)
         {
@@ -24,7 +27,7 @@ public class LevelOneSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private IEnumerator SpawnAsteroid()
@@ -32,10 +35,10 @@ public class LevelOneSceneManager : MonoBehaviour
         while(gameManager.IsGameActive)
         {
             yield return new WaitForSeconds(gameManager.AsteroidSpawnRate);
-            
-            gameManager.ShouldSpawnAsteroid = false;
 
             Instantiate(asteroid);
+            
+            gameManager.ShouldSpawnAsteroid = false;
             
             /*
             For a random version of an asteroid
